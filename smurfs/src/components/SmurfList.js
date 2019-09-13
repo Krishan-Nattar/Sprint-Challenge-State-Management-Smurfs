@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Smurf from './Smurf';
 import {connect} from 'react-redux';
-// import {} from 
+import {getSmurf} from '../actions';
 
 
 const SmurfList = (props) => {
+    console.log(props);
+
+
+    useState(()=>{
+
+        props.getSmurf()
+
+    },[])
+    
+    
+    
     return ( 
         <div>
             Smurf List
@@ -19,4 +30,4 @@ const mapStateToProps = state =>{
     }
 }
  
-export default SmurfList;
+export default connect(mapStateToProps, {getSmurf})(SmurfList);
