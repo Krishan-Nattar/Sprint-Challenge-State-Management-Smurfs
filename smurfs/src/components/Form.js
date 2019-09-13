@@ -19,7 +19,14 @@ const FormSmurf = (props) => {
 
     const handleSubmit = e =>{
         e.preventDefault();
-        console.log('handleSubming');
+        if(newSmurf.name != "" && newSmurf.age != "" && newSmurf.height != ""){
+            props.addSmurf(newSmurf);
+            setNewSmurf({
+                name: "",
+                age: "",
+                height: ""
+            })
+        }
     }
 
     return ( 
