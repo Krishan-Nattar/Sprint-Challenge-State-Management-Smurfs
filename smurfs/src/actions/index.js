@@ -4,12 +4,11 @@ import axios from 'axios';
 export const getSmurf = () =>{
     return dispatch=>{
         // Start fetching dispatch?
-        console.log('get smurf action');
+
         axios
         .get('http://localhost:3333/smurfs')
         .then(res=>{
-            console.log(res);
-            // Run dispatch
+            dispatch({type: "FETCH_SUCCESSFUL", payload: res.data})
         })
         .catch(err=>{
             console.log(err);

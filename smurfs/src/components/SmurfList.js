@@ -19,7 +19,9 @@ const SmurfList = (props) => {
     return ( 
         <div>
             Smurf List
-            <Smurf />
+            {props.state.smurfs.map(item=>{
+                return <Smurf />
+            })}
         </div>
      );
 }
