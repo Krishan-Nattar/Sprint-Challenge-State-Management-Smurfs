@@ -28,3 +28,18 @@ export const addSmurf = (data) =>{
         })
     }
 }
+
+export const deleteSmurf = (id) =>{
+    console.log('deleting');
+    return dispatch=>{
+        axios
+        .delete(`http://localhost:3333/smurfs/${id}`)
+        .then(res=>{
+            console.log(res)
+            dispatch({type: "FETCH_SUCCESSFUL", payload: res.data})
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Smurf from "./Smurf";
 import { connect } from "react-redux";
-import { getSmurf } from "../actions";
+import { getSmurf, deleteSmurf } from "../actions";
 
 const SmurfList = props => {
   useState(() => {
@@ -9,7 +9,7 @@ const SmurfList = props => {
   }, []);
 
   const handleDelete = id =>{
-    console.log(id)
+    props.deleteSmurf(id);
   }
 
   return (
@@ -30,5 +30,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getSmurf }
+  { getSmurf, deleteSmurf }
 )(SmurfList);
