@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {addSmurf} from '../actions';
+import {Input, Button } from 'semantic-ui-react';
 
 const FormSmurf = (props) => {
 
@@ -31,10 +32,10 @@ const FormSmurf = (props) => {
 
     return ( 
         <form onSubmit={handleSubmit}>
-            <input name="name" placeholder="Input Smurf Name..." value={newSmurf.name} onChange={handleChange} />
-            <input name="age" placeholder="Input Smurf Age..." value={newSmurf.age} onChange={handleChange} />
-            <input name="height" placeholder="Input Smurf Height..." value={newSmurf.height} onChange={handleChange} />
-            <button type="submit">Add New Smurf</button>
+            <Input name="name" placeholder="Input Smurf Name..." value={newSmurf.name} onChange={handleChange} />
+            <Input name="age" placeholder="Input Smurf Age..." value={newSmurf.age} onChange={handleChange} />
+            <Input name="height" placeholder="Input Smurf Height..." value={newSmurf.height} onChange={handleChange} />
+            <Button type="submit">Add New Smurf</Button>
         </form>
      );
 }
