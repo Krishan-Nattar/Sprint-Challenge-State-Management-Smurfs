@@ -2,36 +2,42 @@ import React, { useState } from "react";
 import Smurf from "./Smurf";
 import { connect } from "react-redux";
 import { getSmurf, deleteSmurf, editSmurf, startEdit } from "../actions";
-import {Card} from 'semantic-ui-react';
-import Form from './Form';
-import EditForm from './EditForm';
+import { Card } from "semantic-ui-react";
+import Form from "./Form";
+import EditForm from "./EditForm";
 
 const SmurfList = props => {
   useState(() => {
     props.getSmurf();
   }, []);
 
-  const handleDelete = id =>{
+  const handleDelete = id => {
     props.deleteSmurf(id);
-  }
+  };
 
-  const handleEdit = data =>{
+  const handleEdit = data => {
     props.startEdit(data);
-  }
+  };
 
   return (
     <div>
       {!props.state.editing && <Form />}
       {props.state.editing && <EditForm smurf={props.state.edit_details} />}
-      
-      {!props.state.editing &&
-      <Card.Group>
-      {props.state.smurfs.map(item => {
-        return <Smurf key={item.id} smurf={item} handleDelete={handleDelete} handleEdit={handleEdit} />;
-      })}
-      </Card.Group>
-      }
-      
+
+      {!props.state.editing && (
+        <Card.Group>
+          {props.state.smurfs.map(item => {
+            return (
+              <Smurf
+                key={item.id}
+                smurf={item}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+              />
+            );
+          })}
+        </Card.Group>
+      )}
     </div>
   );
 };
