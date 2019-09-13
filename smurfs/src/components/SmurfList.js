@@ -8,11 +8,15 @@ const SmurfList = props => {
     props.getSmurf();
   }, []);
 
+  const handleDelete = id =>{
+    console.log(id)
+  }
+
   return (
     <div>
       Smurf List
       {props.state.smurfs.map(item => {
-        return <Smurf key={item.id} smurf={item} />;
+        return <Smurf key={item.id} smurf={item} handleDelete={handleDelete}/>;
       })}
     </div>
   );
