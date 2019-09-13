@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {addSmurf} from '../actions';
+import {editSmurf} from '../actions';
 import {Input, Button } from 'semantic-ui-react';
 
-const FormSmurf = (props) => {
+const EditSmurf = (props) => {
 
     const [newSmurf, setNewSmurf] = useState({
         name: "",
@@ -35,9 +35,9 @@ const FormSmurf = (props) => {
             <Input name="name" placeholder="Input Smurf Name..." value={newSmurf.name} onChange={handleChange} />
             <Input name="age" placeholder="Input Smurf Age..." value={newSmurf.age} onChange={handleChange} />
             <Input name="height" placeholder="Input Smurf Height..." value={newSmurf.height} onChange={handleChange} />
-            <Button color="blue" type="submit">Add New Smurf</Button>
+            <Button color="blue" type="submit">Edit Smurf</Button>
         </form>
      );
 }
  
-export default connect(null, {addSmurf})(FormSmurf);
+export default connect(null, {editSmurf})(EditSmurf);

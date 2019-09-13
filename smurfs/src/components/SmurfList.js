@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Smurf from "./Smurf";
 import { connect } from "react-redux";
-import { getSmurf, deleteSmurf, editSmurf } from "../actions";
+import { getSmurf, deleteSmurf, editSmurf, startEdit } from "../actions";
 import {Card} from 'semantic-ui-react';
+import Form from './Form';
+import EditForm from './EditForm';
 
 const SmurfList = props => {
   useState(() => {
@@ -14,18 +16,21 @@ const SmurfList = props => {
   }
 
   const handleEdit = id =>{
-    console.log('editing');
+    props.startEdit();
     // props.editSmurf(id, data)
   }
 
   return (
     <div>
-      Smurf List
+      {!props.state.editing && <Form />}
+      {props.state.editing && <EditForm />}
+      
       <Card.Group>
       {props.state.smurfs.map(item => {
         return <Smurf key={item.id} smurf={item} handleDelete={handleDelete} handleEdit={handleEdit} />;
       })}
       </Card.Group>
+      
     </div>
   );
 };
@@ -38,5 +43,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getSmurf, deleteSmurf, editSmurf }
+  { getSmurf, deleteSmurf, editSmurf, startEdit }
 )(SmurfList);
