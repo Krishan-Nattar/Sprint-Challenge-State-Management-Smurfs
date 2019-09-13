@@ -23,10 +23,27 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+Context api allows the ability send props to child components without having to explicity write each passing of the prop. This helps avoid the issue of 'prop drilling'
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Actions are where we hold the logic for our application. They will be called and take in data. They will then dispatch instructions over to the reducer.
+Reducers are where instructions are interpreted in order to manipulate the state.
+The store is where all state is held. 
+The store is the single source of truth, because all state is kept there. Any use of that information throughout the application is via props, not directly through state.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is state that is accessible globally, or throughout the whole application. Component state is state that is accessible within that specific component, or any component it passes via props.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux Thunk is a middleware which watches for a returned function, isntead of the standard object. It allows an action to return a function, therefore allowing asynchronous commands. Our action creators now can contain a nested function. 
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Redux is great. It makes everything a lot easier to access after the initial setup.
 
 ## Project Set Up
 
