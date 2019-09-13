@@ -41,13 +41,13 @@ export const deleteSmurf = id => {
   };
 };
 
-export const editSmurf = (id, data) => {
-  console.log("deleting");
+export const editSmurf = (data) => {
+
   return dispatch => {
     axios
-      .put(`http://localhost:3333/smurfs/${id}`, data)
+      .put(`http://localhost:3333/smurfs/${data.id}`, data)
       .then(res => {
-        console.log(res);
+        dispatch({type: "END_EDITING"})
         dispatch({ type: "FETCH_SUCCESSFUL", payload: res.data });
       })
       .catch(err => {
@@ -56,9 +56,10 @@ export const editSmurf = (id, data) => {
   };
 };
 
-export const startEdit = () => {
+export const startEdit = (data) => {
   return {
-    type: "START_EDITING"
+    type: "START_EDITING",
+    payload: data
   };
 };
 

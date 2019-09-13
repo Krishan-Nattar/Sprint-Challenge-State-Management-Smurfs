@@ -14,15 +14,15 @@ const Smurf = (props) => {
   <Image
     floated='right'
     size='mini'
-    src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
+    src={`https://picsum.photos/100/100?random=${props.smurf.id}`}
   />
   <Card.Header>{props.smurf.name}</Card.Header>
-  <Card.Meta>age: {props.smurf.age}<p> Height{props.smurf.height}</p></Card.Meta>
+  <Card.Meta>age: {props.smurf.age}<p> Height: {props.smurf.height}</p></Card.Meta>
 
 </Card.Content>
 <Card.Content extra>
   <div className='ui two buttons'>
-  <Button basic color="green" onClick={()=>props.handleEdit(props.smurf.id)}>Edit Smurf</Button>
+  <Button basic color="green" onClick={()=>props.handleEdit(props.smurf)}>Edit Smurf</Button>
   <Button basic color="red" onClick={()=>props.handleDelete(props.smurf.id)}>Delete Smurf</Button>
   </div>
 </Card.Content>

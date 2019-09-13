@@ -15,21 +15,22 @@ const SmurfList = props => {
     props.deleteSmurf(id);
   }
 
-  const handleEdit = id =>{
-    props.startEdit();
-    // props.editSmurf(id, data)
+  const handleEdit = data =>{
+    props.startEdit(data);
   }
 
   return (
     <div>
       {!props.state.editing && <Form />}
-      {props.state.editing && <EditForm />}
+      {props.state.editing && <EditForm smurf={props.state.edit_details} />}
       
+      {!props.state.editing &&
       <Card.Group>
       {props.state.smurfs.map(item => {
         return <Smurf key={item.id} smurf={item} handleDelete={handleDelete} handleEdit={handleEdit} />;
       })}
       </Card.Group>
+      }
       
     </div>
   );
