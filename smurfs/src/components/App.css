@@ -26,3 +26,10 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.add-form{
+  margin-bottom: 40px !important;
+  margin-top: 10px !important;
+  /* border: 1px solid red; */
+}
