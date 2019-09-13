@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Smurf = (props) => {
+    console.log(props)
     return ( 
         <div>
-            Individual Smurf
+            {props.smurf.name}
         </div>
      );
 }

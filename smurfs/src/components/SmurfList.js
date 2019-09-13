@@ -20,7 +20,7 @@ const SmurfList = (props) => {
         <div>
             Smurf List
             {props.state.smurfs.map(item=>{
-                return <Smurf key={item.id} />
+                return <Smurf key={item.id} smurf={item} />
             })}
         </div>
      );
